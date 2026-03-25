@@ -2,12 +2,11 @@
    LUMIÈRE BEAUTY SALON – script.js
    ============================================ */
 
-/* ---- Page Loader ---- */
 window.addEventListener('load', () => {
   setTimeout(() => {
     const loader = document.getElementById('page-loader');
     if (loader) loader.classList.add('hidden');
-  }, 1000); // Decelerated loader slightly to feel sharper
+  }, 1000);
 });
 
 /* ---- GSAP + ScrollTrigger ---- */
