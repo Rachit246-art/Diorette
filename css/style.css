@@ -91,7 +91,6 @@ ul { list-style: none; padding: 0; margin: 0; }
   color: var(--text) !important; text-decoration: none;
   transition: transform var(--transition);
 }
-.diorette-brand-nav:hover { transform: scale(1.03); }
 .d-logo-icon { width: 44px; height: 44px; color: var(--text); }
 .d-logo-text { display: flex; flex-direction: column; justify-content: center; line-height: 1; }
 .d-title { font-family: var(--font-sans); font-size: 25px; font-weight: 500; letter-spacing: 5px; color: var(--text); margin-bottom: 4px; }
@@ -861,6 +860,29 @@ ul { list-style: none; padding: 0; margin: 0; }
 #back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
 #back-to-top:hover { background: var(--primary-dark); transform: translateY(-3px); }
 
+/* ---- NAV MORE DROPDOWN ---- */
+.nav-more-dropdown { display: none; }
+@media (min-width: 992px) { .nav-more-dropdown { display: flex; } }
+.nav-more-menu {
+  background: rgba(253,250,246,0.98);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  padding: 8px 0;
+  min-width: 180px;
+}
+.nav-more-menu .dropdown-item {
+  font-size: 14px; font-weight: 500; color: var(--text);
+  padding: 9px 20px; transition: color 0.2s, background 0.2s;
+}
+.nav-more-menu .dropdown-item:hover {
+  background: var(--primary-light); color: var(--primary);
+}
+.nav-more-dropdown > .nav-link::after {
+  /* Bootstrap caret — keep default */
+}
+
 /* ---- GSAP INITIAL STATES ---- */
 [data-gsap] { opacity: 0; }
 
@@ -930,4 +952,32 @@ ul { list-style: none; padding: 0; margin: 0; }
   .hero-btns .btn-outline-light-custom { width: 100%; justify-content: center; }
   .hero-stats-bar { padding: 14px 0; }
   .stat-divider { display: none; }
+}
+
+/* ---- PREMIUM INNER HERO ---- */
+.inner-hero {
+  padding-top: 220px;
+  padding-bottom: 120px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.inner-hero-bg {
+  position: absolute;
+  inset: -15%;
+  background-size: cover;
+  background-position: center 30%;
+  background-attachment: fixed;
+  z-index: 0;
+  transform: scale(1.05);
+  filter: blur(2px) grayscale(20%);
+}
+.inner-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,20,16,0.6) 0%, rgba(26,20,16,0.98) 100%);
+  z-index: 1;
+}
+@media (max-width: 767px) {
+  .inner-hero { padding-top: 150px; padding-bottom: 80px; }
+  .inner-hero-bg { background-attachment: scroll; filter: blur(0px) } 
 }

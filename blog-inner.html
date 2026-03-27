@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Art of Balayage – Lumière Beauty Salon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css?v=2" />
+  <style>
+    /* ---- BLOG INNER PAGE ---- */
+    .blog-hero { position: relative; height: 70vh; min-height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .blog-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 30%; }
+    .blog-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,20,16,0.92) 0%, rgba(26,20,16,0.35) 60%, transparent 100%); }
+    .blog-hero-content { position: relative; z-index: 2; padding-bottom: 64px; }
+    .blog-meta-top { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+    .blog-cat-badge { background: var(--primary); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 99px; }
+    .blog-read-time { font-size: 13px; color: rgba(255,255,255,0.65); display: flex; align-items: center; gap: 6px; }
+    .blog-hero-title { font-family: var(--font-serif); font-size: clamp(28px, 4.5vw, 54px); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 20px; }
+    .blog-author-row { display: flex; align-items: center; gap: 14px; }
+    .blog-author-row img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+    .blog-author-row strong { display: block; font-size: 14px; font-weight: 700; color: #fff; }
+    .blog-author-row span { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+    /* Article body */
+    .blog-article { padding: 80px 0 60px; }
+    .blog-body { font-size: 17px; line-height: 1.9; color: var(--text); }
+    .blog-body p { margin-bottom: 28px; }
+    .blog-body h2 { font-family: var(--font-serif); font-size: clamp(22px, 3vw, 30px); font-weight: 700; color: var(--text); margin: 48px 0 20px; }
+    .blog-body h3 { font-family: var(--font-serif); font-size: 20px; font-weight: 700; color: var(--text); margin: 36px 0 16px; }
+    .blog-body ul { padding-left: 0; margin-bottom: 28px; }
+    .blog-body ul li { position: relative; padding-left: 24px; margin-bottom: 10px; color: var(--text-muted); font-size: 16px; }
+    .blog-body ul li::before { content: ''; position: absolute; left: 0; top: 11px; width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
+    .blog-pullquote { border-left: 4px solid var(--primary); background: var(--primary-light); padding: 28px 32px; border-radius: 0 var(--radius) var(--radius) 0; margin: 40px 0; }
+    .blog-pullquote p { font-family: var(--font-serif); font-size: 20px; font-style: italic; color: var(--text); margin: 0; line-height: 1.6; }
+    .blog-pullquote cite { display: block; font-size: 13px; color: var(--primary); font-weight: 600; margin-top: 12px; font-style: normal; }
+    .blog-img-full { width: 100%; border-radius: var(--radius); object-fit: cover; margin: 40px 0; box-shadow: var(--shadow-md); }
+    .blog-img-caption { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: -28px; margin-bottom: 40px; font-style: italic; }
+    .blog-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0; }
+    .blog-img-grid img { width: 100%; height: 280px; object-fit: cover; border-radius: var(--radius-sm); }
+    .blog-tip-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 32px; margin: 40px 0; box-shadow: var(--shadow-sm); }
+    .blog-tip-box .tip-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .blog-tip-box p { margin: 0; font-size: 15px; color: var(--text-muted); }
+
+    /* Sidebar */
+    .blog-sidebar { position: sticky; top: 100px; }
+    .sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 28px; }
+    .sidebar-card h5 { font-family: var(--font-serif); font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .sidebar-author img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-light); margin-bottom: 14px; }
+    .sidebar-author strong { display: block; font-size: 16px; font-weight: 700; color: var(--text); }
+    .sidebar-author span { font-size: 13px; color: var(--primary); font-weight: 500; }
+    .sidebar-author p { font-size: 13px; color: var(--text-muted); margin-top: 10px; line-height: 1.6; }
+    .related-post { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .related-post:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-post img { width: 72px; height: 72px; border-radius: var(--radius-sm); object-fit: cover; flex-shrink: 0; }
+    .related-post-info span { font-size: 11px; color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .related-post-info a { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-top: 4px; line-height: 1.4; transition: color 0.3s; }
+    .related-post-info a:hover { color: var(--primary); }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag-pill { padding: 6px 14px; border-radius: 99px; border: 1px solid var(--border); font-size: 13px; color: var(--text-muted); transition: var(--transition); }
+    .tag-pill:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .share-btns { display: flex; gap: 10px; }
+    .share-btn { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; transition: var(--transition); border: 1px solid var(--border); color: var(--text-muted); }
+    .share-btn:hover { background: var(--primary); border-color: var(--primary); color: #fff; transform: translateY(-2px); }
+
+    /* CTA strip */
+    .blog-cta-strip { background: linear-gradient(135deg, var(--dark), #1a1410); border-radius: var(--radius-lg); padding: 48px 40px; margin: 60px 0; position: relative; overflow: hidden; }
+    .blog-cta-strip::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(201,169,110,0.18), transparent 70%); border-radius: 50%; }
+    .blog-cta-strip h3 { font-family: var(--font-serif); font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .blog-cta-strip p { font-size: 15px; color: rgba(255,255,255,0.65); margin-bottom: 24px; }
+
+    @media (max-width: 767px) {
+      .blog-img-grid { grid-template-columns: 1fr; }
+      .blog-img-grid img { height: 220px; }
+      .blog-cta-strip { padding: 32px 24px; }
+      .blog-hero { height: 60vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot d-none d-lg-block"></div>
+  <div class="cursor-outline d-none d-lg-block"></div>
+
+  <!-- PAGE LOADER -->
+  <div id="page-loader">
+    <div class="loader-inner">
+      <div class="diorette-brand-loader">
+        <svg viewBox="0 0 100 100" class="d-logo-icon-loader">
+          <path d="M 25 15 h 25 a 35 35 0 0 1 0 70 h -25 z" fill="none" stroke="currentColor" stroke-width="4.5" />
+          <line x1="38" y1="15" x2="38" y2="85" stroke="currentColor" stroke-width="4.5" />
+        </svg>
+        <div class="d-logo-text-loader">
+          <span class="d-title">DIORETTE</span>
+          <span class="d-subtitle">SALON &bull; CAFE</span>
+        </div>
+      </div>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div id="scroll-progress"></div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="diorette-brand-nav" href="index.html">
+        <svg viewBox="0 0 100 100" class="d-logo-icon">
+          <path d="M 25 15 h 25 a 35 35 0 0 1 0 70 h -25 z" fill="none" stroke="currentColor" stroke-width="4.5" />
+          <line x1="38" y1="15" x2="38" y2="85" stroke="currentColor" stroke-width="4.5" />
+        </svg>
+        <div class="d-logo-text">
+          <span class="d-title">DIORETTE</span>
+          <span class="d-subtitle">SALON &bull; CAFE</span>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="toggler-icon"><span></span><span></span><span></span></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="cafe.html">Cafe</a></li>
+          <li class="nav-item"><a class="nav-link" href="salon.html">Salon</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Our Work</a></li>
+          <li class="nav-item dropdown nav-more-dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+            <ul class="dropdown-menu dropdown-menu-end nav-more-menu">
+              <li><a class="dropdown-item" href="why-choose-us.html">Why Choose Us</a></li>
+              <li><a class="dropdown-item" href="testimonials.html">Reviews</a></li>
+              <li><a class="dropdown-item" href="faq.html">FAQs</a></li>
+              <li><a class="dropdown-item active" href="blog-inner.html">Blog</a></li>
+              <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+            </ul>
+          </li>
+          <li class="nav-item d-lg-none"><a class="nav-link" href="why-choose-us.html">Why Choose Us</a></li>
+          <li class="nav-item d-lg-none"><a class="nav-link" href="testimonials.html">Reviews</a></li>
+          <li class="nav-item d-lg-none"><a class="nav-link" href="faq.html">FAQs</a></li>
+          <li class="nav-item d-lg-none"><a class="nav-link active" href="blog-inner.html">Blog</a></li>
+          <li class="nav-item d-lg-none"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-primary-custom" href="contact.html">Book Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BLOG HERO -->
+  <section class="blog-hero">
+    <div class="blog-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1562322140-8baeececf3df?w=1600&q=90');"></div>
+    <div class="blog-hero-overlay"></div>
+    <div class="container">
+      <div class="blog-hero-content">
+        <div class="blog-meta-top">
+          <span class="blog-cat-badge">Hair Styling</span>
+          <span class="blog-read-time"><i class="fa-regular fa-clock"></i> 6 min read</span>
+          <span class="blog-read-time"><i class="fa-regular fa-calendar"></i> March 20, 2026</span>
+        </div>
+        <h1 class="blog-hero-title">The Art of Balayage:<br>Everything You Need to Know</h1>
+        <div class="blog-author-row">
+          <img src="https://randomuser.me/api/portraits/women/41.jpg" alt="Isabella Rose" />
+          <div>
+            <strong>Isabella Rose</strong>
+            <span>Master Hair Stylist, Lumière</span>
+          </div>
+        </div>
+        <div class="mt-4">
+          <a href="index.html" class="btn btn-outline-white-custom rounded-pill px-4" style="border-color: rgba(255,255,255,0.3); font-size: 14px;"><i class="fa-solid fa-arrow-left me-2"></i>Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ARTICLE BODY -->
+  <section class="blog-article">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- MAIN CONTENT -->
+        <div class="col-lg-8">
+          <div class="blog-body" data-gsap="fade-up">
+
+            <p>Balayage has become one of the most sought-after hair colouring techniques in the world — and for good reason. The word itself is French for "to sweep," involving hand-painting colour onto sections of hair to create a natural, sun-kissed gradient that grows out beautifully.</p>
+
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=1200&q=90" alt="Balayage technique close-up" class="blog-img-full" />
+            <p class="blog-img-caption">Our master stylist hand-painting a balayage application at Lumière Studio</p>
+
+            <h2>Why Balayage Looks So Natural</h2>
+            <p>The secret lies in how light interacts with hair. Balayage concentrates colour on the mid-lengths and ends, feathering softly at the roots — the result is a seamless, dimensional look that appears completely effortless and grows out gracefully without harsh lines.</p>
+
+            <div class="blog-pullquote">
+              <p>"Balayage isn't just a colour technique — it's a philosophy. We're not painting hair, we're sculpting light."</p>
+              <cite>— Isabella Rose, Master Stylist at Lumière</cite>
+            </div>
+
+            <h2>Balayage vs. Highlights</h2>
+            <ul>
+              <li>Traditional highlights use foils, creating a uniform, structured look with touch-ups every 6–8 weeks.</li>
+              <li>Balayage is painted freehand for a softer, blended result that lasts 3–4 months.</li>
+              <li>Lower maintenance and grows out far more gracefully — ideal for a natural, lived-in colour.</li>
+            </ul>
+
+            <div class="blog-img-grid">
+              <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=800&q=85" alt="Before balayage" />
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=85" alt="After balayage" />
+            </div>
+            <p class="blog-img-caption" style="margin-top: -20px;">The transformation: natural base to a luminous, dimensional balayage</p>
+
+            <h2>Best Shades for Your Skin Tone</h2>
+            <ul>
+              <li><strong>Fair skin:</strong> Champagne, pearl blonde, and soft ash tones.</li>
+              <li><strong>Medium skin:</strong> Caramel, honey, and golden tones.</li>
+              <li><strong>Olive skin:</strong> Rich chocolate, toffee, and copper tones.</li>
+              <li><strong>Deep skin:</strong> Burgundy, auburn, and deep caramel.</li>
+            </ul>
+
+            <div class="blog-tip-box">
+              <div class="tip-label"><i class="fa-solid fa-lightbulb"></i> Stylist Tip</div>
+              <p>For very dark hair, we recommend a two-session approach — lightening first, then toning — to protect hair integrity while achieving the brightness you want.</p>
+            </div>
+
+            <h2>How to Maintain Your Balayage</h2>
+            <ul>
+              <li>Use a sulphate-free, colour-safe shampoo.</li>
+              <li>Apply a purple toning shampoo weekly to neutralise brassiness.</li>
+              <li>Deep condition with Olaplex No.3 or Kerastase Blond Absolu Masque.</li>
+              <li>Always use a heat protectant when styling.</li>
+            </ul>
+
+            <!-- CTA Strip -->
+            <div class="blog-cta-strip">
+              <div class="row align-items-center">
+                <div class="col-lg-8">
+                  <h3>Ready for Your Transformation?</h3>
+                  <p>Book a complimentary colour consultation with one of our master stylists today.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                  <a href="contact.html" class="btn btn-primary-custom btn-lg">Book Now <i class="fa-solid fa-arrow-right ms-2"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="mt-5 pt-4" style="border-top: 1px solid var(--border);">
+              <p style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 12px;">TAGS</p>
+              <div class="tag-cloud">
+                <a href="#" class="tag-pill">Balayage</a>
+                <a href="#" class="tag-pill">Hair Colour</a>
+                <a href="#" class="tag-pill">Hair Tips</a>
+                <a href="#" class="tag-pill">Highlights</a>
+                <a href="#" class="tag-pill">Blonde</a>
+                <a href="#" class="tag-pill">Hair Care</a>
+                <a href="#" class="tag-pill">Lumière</a>
+              </div>
+            </div>
+
+            <!-- Share -->
+            <div class="mt-4 d-flex align-items-center gap-3">
+              <p style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin: 0;">SHARE</p>
+              <div class="share-btns">
+                <a href="#" class="share-btn" aria-label="Share on Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="share-btn" aria-label="Share on Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                <a href="#" class="share-btn" aria-label="Share on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="share-btn" aria-label="Share on X"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#" class="share-btn" aria-label="Copy link"><i class="fa-solid fa-link"></i></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="col-lg-4">
+          <div class="blog-sidebar">
+
+            <!-- Author -->
+            <div class="sidebar-card text-center">
+              <h5>About the Author</h5>
+              <div class="sidebar-author">
+                <img src="https://randomuser.me/api/portraits/women/41.jpg" alt="Isabella Rose" />
+                <strong>Isabella Rose</strong>
+                <span>Master Hair Stylist</span>
+                <p>With over 12 years of experience and training across London, Paris, and New York, Isabella specialises in bespoke colour and precision cutting at Lumière.</p>
+              </div>
+            </div>
+
+            <!-- Book CTA -->
+            <div class="sidebar-card" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-color: transparent;">
+              <h5 style="color: #fff; border-color: rgba(255,255,255,0.2);">Book a Session</h5>
+              <p style="font-size: 14px; color: rgba(255,255,255,0.8); margin-bottom: 20px;">Ready to transform your hair? Book a consultation with Isabella or one of our expert stylists today.</p>
+              <a href="contact.html" class="btn btn-white-custom w-100">Book Now <i class="fa-solid fa-arrow-right ms-2"></i></a>
+            </div>
+
+            <!-- Related Posts -->
+            <div class="sidebar-card">
+              <h5>Related Articles</h5>
+              <div class="related-post">
+                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=200&q=80" alt="Skincare" />
+                <div class="related-post-info">
+                  <span>Skincare</span>
+                  <a href="#">5 Facial Treatments That Will Transform Your Skin This Season</a>
+                </div>
+              </div>
+              <div class="related-post">
+                <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=200&q=80" alt="Nail Art" />
+                <div class="related-post-info">
+                  <span>Nail Art</span>
+                  <a href="#">The Top Nail Trends Our Clients Are Loving Right Now</a>
+                </div>
+              </div>
+              <div class="related-post">
+                <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=200&q=80" alt="Bridal" />
+                <div class="related-post-info">
+                  <span>Bridal</span>
+                  <a href="#">How to Plan Your Bridal Beauty Timeline for a Flawless Wedding Day</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="sidebar-card">
+              <h5>Popular Tags</h5>
+              <div class="tag-cloud">
+                <a href="#" class="tag-pill">Hair</a>
+                <a href="#" class="tag-pill">Skincare</a>
+                <a href="#" class="tag-pill">Bridal</a>
+                <a href="#" class="tag-pill">Nails</a>
+                <a href="#" class="tag-pill">Wellness</a>
+                <a href="#" class="tag-pill">Colour</a>
+                <a href="#" class="tag-pill">Tips</a>
+                <a href="#" class="tag-pill">Trends</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row g-5 footer-top">
+        <div class="col-lg-4">
+          <a class="footer-brand" href="index.html"><span class="brand-icon">✦</span> Lumière</a>
+          <p class="footer-desc mt-3">Where beauty meets art. We craft transformative experiences that celebrate your unique elegance — every single visit.</p>
+          <div class="footer-socials mt-4">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-6">
+          <h6 class="footer-heading">Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="testimonials.html">Reviews</a></li>
+            <li><a href="contact.html">Book Now</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-4 col-6">
+          <h6 class="footer-heading">Services</h6>
+          <ul class="footer-links">
+            <li><a href="#">Hair Styling</a></li>
+            <li><a href="#">Facial & Skincare</a></li>
+            <li><a href="#">Bridal Makeup</a></li>
+            <li><a href="#">Nail Art</a></li>
+            <li><a href="#">Lash & Brow</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <h6 class="footer-heading">Stay in Touch</h6>
+          <p class="footer-newsletter-text">Subscribe for beauty tips, exclusive offers, and new treatment launches.</p>
+          <form class="footer-newsletter-form mt-3">
+            <div class="newsletter-input-wrap">
+              <input type="email" placeholder="Your email address" />
+              <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+          </form>
+          <div class="footer-contact mt-4">
+            <p><i class="fa-solid fa-envelope me-2"></i>hello@lumiere.com</p>
+            <p><i class="fa-solid fa-phone me-2"></i>+1 (000) 000-0000</p>
+            <p><i class="fa-solid fa-location-dot me-2"></i>123 Elegance Ave, New York, NY</p>
+            <p><i class="fa-solid fa-clock me-2"></i>Mon–Sat: 9am – 8pm &nbsp;|&nbsp; Sun: 10am – 6pm</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Lumière Beauty Salon. All rights reserved. Crafted with <i class="fa-solid fa-heart"></i> for beauty lovers.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/918826464841" class="chat-float-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" width="28" height="28">
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-2.1-3.6 2.1-3.2 7.6-14.2 2.7-5.6 1.4-10.4-1.4-16-2.8-5.6-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+  </a>
+
+  <!-- BACK TO TOP -->
+  <button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="js/script.js?v=2"></script>
+</body>
+</html>

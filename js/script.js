@@ -268,19 +268,21 @@ function initServiceGlow() {
 /* ---- Navbar Toggler Animation ---- */
 function initTogglerAnim() {
   const toggler = document.querySelector('.navbar-toggler');
-  const spans = toggler?.querySelectorAll('span');
-  if (!toggler || !spans) return;
-  toggler.addEventListener('click', () => {
-    const isOpen = toggler.getAttribute('aria-expanded') === 'true';
-    if (!isOpen) {
-      gsap.to(spans[0], { rotation: 45, y: 7, duration: 0.3 });
-      gsap.to(spans[1], { opacity: 0, duration: 0.2 });
-      gsap.to(spans[2], { rotation: -45, y: -7, duration: 0.3 });
-    } else {
-      gsap.to(spans[0], { rotation: 0, y: 0, duration: 0.3 });
-      gsap.to(spans[1], { opacity: 1, duration: 0.2 });
-      gsap.to(spans[2], { rotation: 0, y: 0, duration: 0.3 });
-    }
+  const navMenu = document.getElementById('navMenu');
+  const spans = toggler?.querySelectorAll('.toggler-icon span');
+  if (!toggler || !navMenu || !spans || spans.length < 3) return;
+
+  // Use Bootstrap collapse events — these fire AFTER state is updated, so timing is guaranteed.
+  navMenu.addEventListener('show.bs.collapse', () => {
+    gsap.to(spans[0], { rotation: 45, y: 7, duration: 0.3, ease: 'power2.out' });
+    gsap.to(spans[1], { opacity: 0, scaleX: 0, duration: 0.2 });
+    gsap.to(spans[2], { rotation: -45, y: -7, duration: 0.3, ease: 'power2.out' });
+  });
+
+  navMenu.addEventListener('hide.bs.collapse', () => {
+    gsap.to(spans[0], { rotation: 0, y: 0, duration: 0.3, ease: 'power2.out' });
+    gsap.to(spans[1], { opacity: 1, scaleX: 1, duration: 0.2 });
+    gsap.to(spans[2], { rotation: 0, y: 0, duration: 0.3, ease: 'power2.out' });
   });
 }
 
