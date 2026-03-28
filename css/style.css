@@ -266,13 +266,22 @@ ul { list-style: none; padding: 0; margin: 0; }
 /* Parallax background layer */
 .hero-slide-bg {
   position: absolute;
-  inset: -80px 0;          /* extra height top/bottom for parallax travel */
-  background-size: cover;
+  inset: -80px 0;
+  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
+  background-color: #1a1410;
   will-change: transform;
   transform: scale(1);
-  transition: transform 6s linear; /* Default for non-active */
+  transition: transform 6s linear;
+}
+
+/* On mobile keep cover so image fills the screen */
+@media (max-width: 991px) {
+  .hero-slide-bg {
+    background-size: cover;
+    background-color: transparent;
+  }
 }
 
 /* Premium Ken Burns scale on active slide */
@@ -979,16 +988,16 @@ ul { list-style: none; padding: 0; margin: 0; }
   
   /* Restoring arrows on mobile - better positioned */
   .hero-swiper-prev, .hero-swiper-next { 
-    display: flex; top: auto; bottom: 35%; /* above buttons/text block */
-    transform: translateY(50%);
+    display: flex; top: auto; bottom: 100px;
+    transform: none;
     width: 38px; height: 38px;
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.15);
   }
   .hero-swiper-prev:hover, .hero-swiper-next:hover {
-    transform: translateY(50%) scale(1.05);
+    transform: scale(1.05);
   }
   .hero-swiper-prev:active, .hero-swiper-next:active {
-    transform: translateY(50%) scale(0.95);
+    transform: scale(0.95);
   }
   .hero-swiper-prev { left: 12px; }
   .hero-swiper-next { right: 12px; }
