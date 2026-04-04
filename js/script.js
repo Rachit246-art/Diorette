@@ -134,6 +134,9 @@ function initTyped() {
 
 /* ---- Hero Swiper Slider with Parallax ---- */
 function initHeroSlider() {
+  const sliderEl = document.querySelector('.hero-swiper');
+  if (!sliderEl || typeof Swiper === 'undefined') return null;
+
   const heroSwiper = new Swiper('.hero-swiper', {
     loop: true,
     speed: 1200,   /* slower crossfade for premium feel */
@@ -218,6 +221,9 @@ function initCounters() {
 
 /* ---- Swiper Testimonials ---- */
 function initSwiper() {
+  const testEl = document.querySelector('.testimonials-swiper');
+  if (!testEl || typeof Swiper === 'undefined') return;
+  
   new Swiper('.testimonials-swiper', {
     slidesPerView: 1, spaceBetween: 24, loop: true,
     autoplay: { delay: 5000, disableOnInteraction: false },
@@ -418,18 +424,22 @@ function initLightbox() {
 
 /* ---- Init All ---- */
 document.addEventListener('DOMContentLoaded', () => {
-  initLenis();
-  initCursor();
-  initTyped();
-  initHeroSlider();
-  initHeroParallax();
-  initAnimations();
-  initCounters();
-  initSwiper();
-  initPortfolioFilter();
-  initBackToTop();
-  initServiceGlow();
-  initTogglerAnim();
-  initParallax();
-  initLightbox();
+  try {
+    initLenis();
+    initCursor();
+    initTyped();
+    initHeroSlider();
+    initHeroParallax();
+    initAnimations();
+    initCounters();
+    initSwiper();
+    initPortfolioFilter();
+    initBackToTop();
+    initServiceGlow();
+    initTogglerAnim();
+    initParallax();
+    initLightbox();
+  } catch (err) {
+    console.warn("Diorette script init limited:", err);
+  }
 });

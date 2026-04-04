@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog 2: Luxury Salons and International Beauty Products in Bangalore – Diorette</title>
+  <meta name="description" content="Discover how Bangalore is evolving with luxury salons and international beauty products. Learn about high-end hair, skin, nail, and unisex services combined with premium experiences at salons like Diorette." />
+  <meta name="keywords" content="luxury salons Bangalore, international beauty products India, premium hair treatments Bangalore, luxury grooming Bangalore, Diorette Salon & Café, unisex salon Bangalore, kids grooming luxury, Bangalore lifestyle salon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css?v=2" />
+  <style>
+    /* ---- BLOG INNER PAGE ---- */
+    .blog-hero { position: relative; height: 70vh; min-height: 480px; overflow: hidden; display: flex; align-items: flex-end; }
+    .blog-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center 30%; }
+    .blog-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,20,16,0.92) 0%, rgba(26,20,16,0.35) 60%, transparent 100%); }
+    .blog-hero-content { position: relative; z-index: 2; padding-bottom: 64px; }
+    .blog-meta-top { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+    .blog-cat-badge { background: var(--primary); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 14px; border-radius: 99px; }
+    .blog-read-time { font-size: 13px; color: rgba(255,255,255,0.65); display: flex; align-items: center; gap: 6px; }
+    .blog-hero-title { font-family: var(--font-serif); font-size: clamp(28px, 4.5vw, 54px); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 20px; }
+    .blog-author-row { display: flex; align-items: center; gap: 14px; }
+    .blog-author-row img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+    .blog-author-row strong { display: block; font-size: 14px; font-weight: 700; color: #fff; }
+    .blog-author-row span { font-size: 12px; color: rgba(255,255,255,0.6); }
+
+    /* Article body */
+    .blog-article { padding: 80px 0 60px; }
+    .blog-body { font-size: 17px; line-height: 1.9; color: var(--text); }
+    .blog-body p { margin-bottom: 28px; }
+    .blog-body h2 { font-family: var(--font-serif); font-size: clamp(22px, 3vw, 30px); font-weight: 700; color: var(--text); margin: 48px 0 20px; }
+    .blog-body h3 { font-family: var(--font-serif); font-size: 20px; font-weight: 700; color: var(--text); margin: 36px 0 16px; }
+    .blog-body ul { padding-left: 0; margin-bottom: 28px; }
+    .blog-body ul li { position: relative; padding-left: 24px; margin-bottom: 10px; color: var(--text-muted); font-size: 16px; }
+    .blog-body ul li::before { content: ''; position: absolute; left: 0; top: 11px; width: 8px; height: 8px; background: var(--primary); border-radius: 50%; }
+    .blog-pullquote { border-left: 4px solid var(--primary); background: var(--primary-light); padding: 28px 32px; border-radius: 0 var(--radius) var(--radius) 0; margin: 40px 0; }
+    .blog-pullquote p { font-family: var(--font-serif); font-size: 20px; font-style: italic; color: var(--text); margin: 0; line-height: 1.6; }
+    .blog-pullquote cite { display: block; font-size: 13px; color: var(--primary); font-weight: 600; margin-top: 12px; font-style: normal; }
+    .blog-img-full { width: 100%; border-radius: var(--radius); object-fit: cover; margin: 40px 0; box-shadow: var(--shadow-md); }
+    .blog-img-caption { text-align: center; font-size: 13px; color: var(--text-muted); margin-top: -28px; margin-bottom: 40px; font-style: italic; }
+    .blog-img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 40px 0; }
+    .blog-img-grid img { width: 100%; height: 280px; object-fit: cover; border-radius: var(--radius-sm); }
+    .blog-tip-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 32px; margin: 40px 0; box-shadow: var(--shadow-sm); }
+    .blog-tip-box .tip-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--primary); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .blog-tip-box p { margin: 0; font-size: 15px; color: var(--text-muted); }
+
+    /* Sidebar */
+    .blog-sidebar { position: sticky; top: 100px; }
+    .sidebar-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 28px; }
+    .sidebar-card h5 { font-family: var(--font-serif); font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .sidebar-author img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-light); margin-bottom: 14px; }
+    .sidebar-author strong { display: block; font-size: 16px; font-weight: 700; color: var(--text); }
+    .sidebar-author span { font-size: 13px; color: var(--primary); font-weight: 500; }
+    .sidebar-author p { font-size: 13px; color: var(--text-muted); margin-top: 10px; line-height: 1.6; }
+    .related-post { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .related-post:last-child { border-bottom: none; padding-bottom: 0; }
+    .related-post img { width: 72px; height: 72px; border-radius: var(--radius-sm); object-fit: cover; flex-shrink: 0; }
+    .related-post-info span { font-size: 11px; color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .related-post-info a { display: block; font-size: 14px; font-weight: 600; color: var(--text); margin-top: 4px; line-height: 1.4; transition: color 0.3s; }
+    .related-post-info a:hover { color: var(--primary); }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag-pill { padding: 6px 14px; border-radius: 99px; border: 1px solid var(--border); font-size: 13px; color: var(--text-muted); transition: var(--transition); }
+    .tag-pill:hover { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .share-btns { display: flex; gap: 10px; }
+    .share-btn { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 15px; transition: var(--transition); border: 1px solid var(--border); color: var(--text-muted); }
+    .share-btn:hover { background: var(--primary); border-color: var(--primary); color: #fff; transform: translateY(-2px); }
+
+    /* CTA strip */
+    .blog-cta-strip { background: linear-gradient(135deg, var(--dark), #1a1410); border-radius: var(--radius-lg); padding: 48px 40px; margin: 60px 0; position: relative; overflow: hidden; }
+    .blog-cta-strip::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(201,169,110,0.18), transparent 70%); border-radius: 50%; }
+    .blog-cta-strip h3 { font-family: var(--font-serif); font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .blog-cta-strip p { font-size: 15px; color: rgba(255,255,255,0.65); margin-bottom: 24px; }
+
+    @media (max-width: 767px) {
+      .blog-img-grid { grid-template-columns: 1fr; }
+      .blog-img-grid img { height: 220px; }
+      .blog-cta-strip { padding: 32px 24px; }
+      .blog-hero { height: 60vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot d-none d-lg-block"></div>
+  <div class="cursor-outline d-none d-lg-block"></div>
+
+  <!-- PAGE LOADER -->
+  <div id="page-loader">
+    <div class="loader-inner">
+      <div class="diorette-brand-loader">
+        <svg viewBox="0 0 100 100" class="d-logo-icon-loader">
+          <path d="M 25 15 h 25 a 35 35 0 0 1 0 70 h -25 z" fill="none" stroke="currentColor" stroke-width="4.5" />
+          <line x1="38" y1="15" x2="38" y2="85" stroke="currentColor" stroke-width="4.5" />
+        </svg>
+        <div class="d-logo-text-loader">
+          <span class="d-title">DIORETTE</span>
+          <span class="d-subtitle">SALON &bull; CAFE</span>
+        </div>
+      </div>
+      <div class="loader-bar"><span></span></div>
+    </div>
+  </div>
+
+  <!-- SCROLL PROGRESS -->
+  <div id="scroll-progress"></div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="diorette-brand-nav" href="index.html">
+        <svg viewBox="0 0 100 100" class="d-logo-icon">
+          <path d="M 25 15 h 25 a 35 35 0 0 1 0 70 h -25 z" fill="none" stroke="currentColor" stroke-width="4.5" />
+          <line x1="38" y1="15" x2="38" y2="85" stroke="currentColor" stroke-width="4.5" />
+        </svg>
+        <div class="d-logo-text">
+          <span class="d-title">DIORETTE</span>
+          <span class="d-subtitle">SALON &bull; CAFE</span>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="toggler-icon"><span></span><span></span><span></span></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="cafe.html">Cafe</a></li>
+          <li class="nav-item"><a class="nav-link" href="salon.html">Salon</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Our Work</a></li>
+          <li class="nav-item dropdown nav-more-dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">More</a>
+            <ul class="dropdown-menu dropdown-menu-end nav-more-menu">
+              <li><a class="dropdown-item" href="why-choose-us.html">Why Choose Us</a></li>
+              <li><a class="dropdown-item" href="testimonials.html">Reviews</a></li>
+              <li><a class="dropdown-item" href="faq.html">FAQs</a></li>
+              <li><a class="dropdown-item active" href="blog.html">Blog</a></li>
+              <li><a class="dropdown-item" href="contact.html">Contact</a></li>
+            </ul>
+          </li>
+          <li class="nav-item ms-lg-3">
+            <a class="btn btn-primary-custom" href="contact.html">Book Now</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- BLOG HERO -->
+  <section class="blog-hero">
+    <div class="blog-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1595475243688-393650ca8a18?w=1600&q=90');"></div>
+    <div class="blog-hero-overlay"></div>
+    <div class="container">
+      <div class="blog-hero-content">
+        <div class="blog-meta-top">
+          <span class="blog-cat-badge">Beauty Evolution</span>
+          <span class="blog-read-time"><i class="fa-regular fa-clock"></i> 7 min read</span>
+          <span class="blog-read-time"><i class="fa-regular fa-calendar"></i> April 4, 2026</span>
+        </div>
+        <h1 class="blog-hero-title">Blog 2: Bangalore’s Beauty Evolution:<br>Luxury Salons and International Products</h1>
+        <div class="blog-author-row">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Diorette Concierge" />
+          <div>
+            <strong>Diorette Concierge</strong>
+            <span>Beauty Trend Specialist</span>
+          </div>
+        </div>
+        <div class="mt-4">
+          <a href="blog.html" class="btn btn-outline-white-custom rounded-pill px-4" style="border-color: rgba(255,255,255,0.3); font-size: 14px;"><i class="fa-solid fa-arrow-left me-2"></i>Back to Blog</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ARTICLE BODY -->
+  <section class="blog-article">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- MAIN CONTENT -->
+        <div class="col-lg-8">
+          <div class="blog-body" data-gsap="fade-up">
+
+            <p>Bangalore, India’s bustling tech and lifestyle hub, is not just known for its IT parks and cosmopolitan culture, it is also <strong>emerging as a hotspot for luxury beauty and grooming experiences.</strong> Over the last few years, the city has witnessed a <strong>rapid transformation in the salon and wellness industry</strong>, with a growing demand for <strong>high-end services and international beauty products.</strong></p>
+
+            <img src="assets/img/Hero_section-1.jpg.jpeg" alt="Bangalore Luxury Salon Scene" class="blog-img-full" />
+            <p class="blog-img-caption">The skyline of Bangalore's beauty industry is shifting towards international global standards.</p>
+
+            <h2>The Rise of Luxury Salons in Bangalore</h2>
+            <p>Luxury salons in Bangalore are <strong>redefining the concept of self-care.</strong> Gone are the days when salon visits were merely functional. Today, the modern Bangalorean seeks <strong>a complete sensory and lifestyle experience</strong>—from professional hair and skincare treatments to a serene ambiance that feels like a mini-retreat.</p>
+
+            <p>This shift has given rise to <strong>premium salons like Diorette</strong>, India's first <strong>luxury salon and café</strong>, where guests can enjoy <strong>world-class hair, skin, nail, unisex, and kids’ services</strong>, all while indulging in a <strong>luxury café experience.</strong> These salons combine <strong>expert craftsmanship, high-end products, and personalized services</strong>, setting new benchmarks for quality and luxury.</p>
+
+            <div class="blog-pullquote">
+              <p>"Self-care in Bangalore is no longer a luxury; it's an essential evolution of the modern lifestyle."</p>
+              <cite>— Bangalore Trends Review</cite>
+            </div>
+
+            <h2>Why International Products Are Becoming Essential</h2>
+            <p>The beauty-conscious clientele in Bangalore is increasingly demanding <strong>safe, effective, and high-performance products.</strong> Salons are now <strong>integrating international brands</strong> such as <strong>Redken, Olaplex, and L’Oréal Professionnel</strong> into their services to deliver <strong>consistent, visible results.</strong></p>
+
+            <p>These products are trusted worldwide for their <strong>professional-grade quality</strong>, ensuring that treatments like keratin, hair botox, facials, and coloring not only enhance appearance but also <strong>maintain the health and integrity of hair and skin.</strong> The use of <strong>global standards and premium formulations</strong> has become a hallmark of luxury salons in the city.</p>
+
+            <img src="assets/img/gallery-hair-2.png" alt="Professional Beauty Products" class="blog-img-full" />
+            <p class="blog-img-caption">Premium results require internationally certified excellence.</p>
+
+            <h2>The Modern Salon Experience in Bangalore</h2>
+            <p>The evolution of salons in Bangalore goes beyond products it is about <strong>experience and indulgence.</strong> Customers are now seeking:</p>
+            <ul>
+              <li><strong>Personalized Services:</strong> Tailored haircuts, skincare routines, and grooming treatments.</li>
+              <li><strong>Ambiance and Comfort:</strong> Luxurious interiors, soothing lighting, and an aesthetic environment.</li>
+              <li><strong>Integrated Lifestyle Experiences:</strong> Spaces where clients can enjoy coffee, desserts, or light bites during treatments.</li>
+              <li><strong>Inclusive Options:</strong> Unisex grooming and child-friendly services, making luxury accessible to everyone.</li>
+            </ul>
+
+            <p>This trend reflects a <strong>growing lifestyle consciousness</strong>, where beauty, wellness, and leisure converge to create <strong>a holistic self-care destination.</strong></p>
+
+            <h2>Bangalore’s Luxury Salon Market: The Future</h2>
+            <p>With more people willing to invest in <strong>premium grooming and wellness</strong>, Bangalore is set to <strong>become a hub for luxury salon experiences in India.</strong> Salons are now competing on <strong>service quality, product excellence, and overall experience</strong>, rather than just pricing.</p>
+
+            <p>Concepts like <strong>Diorette Salon & Café</strong> illustrate the future: a place where <strong>luxury meets lifestyle</strong>, where international beauty products meet <strong>expert stylists</strong>, and where <strong>every visit is curated for indulgence and relaxation.</strong></p>
+
+            <p>As more brands adopt <strong>global standards, eco-friendly practices, and innovative treatments</strong>, Bangaloreans can expect <strong>unmatched luxury and sophisticated self-care</strong>, setting trends for the entire country.</p>
+
+            <h2>Conclusion</h2>
+            <p>Bangalore’s beauty and grooming landscape is evolving rapidly. Today, the city embraces <strong>luxury salons that prioritize high-end services, international products, and exceptional customer experiences.</strong> Whether it’s a <strong>precision haircut, advanced facial, bespoke nail art, or a serene café break</strong>, modern salons in Bangalore are redefining <strong>what it means to indulge in beauty and lifestyle.</strong></p>
+
+            <p>For those seeking the <strong>ultimate blend of luxury, style, and wellness</strong>, India’s first luxury salon and café, <strong>Diorette</strong>, is leading the way, showing how <strong>premium services and international products can transform self-care into an elevated experience.</strong></p>
+
+            <!-- CTA Strip -->
+            <div class="blog-cta-strip">
+              <div class="row align-items-center">
+                <div class="col-lg-8">
+                  <h3>Be Part of the Evolution</h3>
+                  <p>Experience the future of beauty and wellness at Diorette. Book your session today at India’s premier luxury Salon & Café in Bangalore.</p>
+                </div>
+                <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+                  <a href="contact.html" class="btn btn-primary-custom btn-lg">Book Now <i class="fa-solid fa-arrow-right ms-2"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="mt-5 pt-4" style="border-top: 1px solid var(--border);">
+              <p style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 12px;">TAGS</p>
+              <div class="tag-cloud">
+                <a href="#" class="tag-pill">Beauty Evolution</a>
+                <a href="#" class="tag-pill">Premium Products</a>
+                <a href="#" class="tag-pill">Luxury Salons</a>
+                <a href="#" class="tag-pill">Bangalore Lifestyle</a>
+                <a href="#" class="tag-pill">International Brands</a>
+              </div>
+            </div>
+
+            <!-- Share -->
+            <div class="mt-4 d-flex align-items-center gap-3">
+              <p style="font-size: 13px; font-weight: 600; color: var(--text-muted); margin: 0;">SHARE</p>
+              <div class="share-btns">
+                <a href="#" class="share-btn" aria-label="Share on Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="share-btn" aria-label="Share on Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                <a href="#" class="share-btn" aria-label="Share on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="share-btn" aria-label="Copy link"><i class="fa-solid fa-link"></i></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="col-lg-4">
+          <div class="blog-sidebar">
+
+            <!-- Author -->
+            <div class="sidebar-card text-center">
+              <h5>About the Author</h5>
+              <div class="sidebar-author">
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Diorette Concierge" />
+                <strong>Diorette Concierge</strong>
+                <span>Luxury Consultant</span>
+                <p>Specializing in global beauty standards and premium lifestyle trends across the modern urban landscape.</p>
+              </div>
+            </div>
+
+            <!-- Related Posts -->
+            <div class="sidebar-card">
+              <h5>Related Articles</h5>
+              <div class="related-post">
+                <img src="assets/img/cafe-interior.png" alt="India's First Luxury Salon Cafe" />
+                <div class="related-post-info">
+                  <span>New Launch</span>
+                  <a href="blog-1.html">India’s First Luxury Salon & Café: Redefining Luxury in Bangalore</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row g-5 footer-top">
+        <div class="col-lg-4">
+          <a class="footer-brand" href="index.html">
+            <svg viewBox="0 0 100 100" class="d-logo-icon" style="width: 40px; vertical-align: middle;">
+              <path d="M 25 15 h 25 a 35 35 0 0 1 0 70 h -25 z" fill="none" stroke="currentColor" stroke-width="4.5" />
+              <line x1="38" y1="15" x2="38" y2="85" stroke="currentColor" stroke-width="4.5" />
+            </svg>
+            <span class="ms-2">DIORETTE</span>
+          </a>
+          <p class="footer-desc mt-3">India’s first luxury salon & café, located in Bangalore. We blend world-class beauty services with a premium café experience for a complete self-care destination.</p>
+          <div class="footer-socials mt-4">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 col-6">
+          <h6 class="footer-heading">Quick Links</h6>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Our Work</a></li>
+            <li><a href="faq.html">FAQs</a></li>
+            <li><a href="contact.html">Book Now</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-4 col-6">
+          <h6 class="footer-heading">Services</h6>
+          <ul class="footer-links">
+            <li><a href="services.html#hair">Hair Services</a></li>
+            <li><a href="services.html#skin">Skin Services</a></li>
+            <li><a href="services.html#nails">Nail Services</a></li>
+            <li><a href="services.html#kids">Kids' Services</a></li>
+            <li><a href="services.html#unisex">Unisex & Café</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <h6 class="footer-heading">Stay in Touch</h6>
+          <p class="footer-newsletter-text">Subscribe for beauty tips, exclusive offers, and new treatment launches.</p>
+          <form class="footer-newsletter-form mt-3">
+            <div class="newsletter-input-wrap">
+              <input type="email" placeholder="Your email address" />
+              <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+          </form>
+          <div class="footer-contact mt-4">
+            <p><i class="fa-solid fa-envelope me-2"></i>hello@diorette.com</p>
+            <p><i class="fa-solid fa-phone me-2"></i>+91 8105211558</p>
+            <p><i class="fa-solid fa-location-dot me-2"></i>494, Rainbow Arcade 2nd Floor HMT Layout CBI main road, RT Nagar Bangalore 560032</p>
+            <p><i class="fa-solid fa-clock me-2"></i>Business Hours: 10:30 - 20:30</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom text-center">
+        <p>&copy; 2025 Diorette Salon & Café. All rights reserved.</p>
+        <div class="footer-bottom-links mt-2">
+            <a href="terms-and-conditions.html" class="mx-2 text-white-50">Terms and Conditions</a>
+            <a href="privacy-policy.html" class="mx-2 text-white-50">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/917460084600" class="chat-float-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" width="28" height="28">
+      <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-2.1-3.6 2.1-3.2 7.6-14.2 2.7-5.6 1.4-10.4-1.4-16-2.8-5.6-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+  </a>
+
+  <!-- BACK TO TOP -->
+  <button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script src="js/script.js?v=2"></script>
+</body>
+</html>

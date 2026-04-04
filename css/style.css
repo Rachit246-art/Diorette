@@ -639,8 +639,8 @@ ul { list-style: none; padding: 0; margin: 0; }
 .testi-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
 .testi-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
 .testi-stars { color: var(--primary); font-size: 14px; display: flex; gap: 3px; }
-.testi-platform { font-size: 12px; color: var(--text-muted); font-weight: 500; display: flex; align-items: center; gap: 5px; }
-.testi-platform i { color: #4285f4; }
+.testi-platform { font-size: 11px; color: var(--primary); font-weight: 600; display: flex; align-items: center; gap: 6px; border: 1px solid rgba(201,169,110,0.15); padding: 4px 10px; border-radius: 99px; background: rgba(201,169,110,0.03); }
+.testi-platform i { color: var(--primary) !important; font-size: 13px; }
 .testi-text { font-size: 15px; color: var(--text-muted); line-height: 1.8; font-style: italic; margin-bottom: 24px; }
 .testi-author { display: flex; align-items: center; gap: 14px; }
 .testi-author img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary-light); }
@@ -952,12 +952,13 @@ ul { list-style: none; padding: 0; margin: 0; }
   font-size: 14px; font-weight: 500; color: var(--text);
   padding: 9px 20px; transition: color 0.2s, background 0.2s;
 }
-.nav-more-menu .dropdown-item:hover {
-  background: var(--primary-light); color: var(--primary);
+.nav-more-menu .dropdown-item:hover, 
+.nav-more-menu .dropdown-item:focus,
+.nav-more-menu .dropdown-item.active,
+.nav-more-menu .dropdown-item:active {
+  background: var(--primary) !important; color: var(--white) !important;
 }
-.nav-more-dropdown > .nav-link::after {
-  /* Bootstrap caret — keep default */
-}
+
 
 /* ---- GSAP INITIAL STATES ---- */
 [data-gsap] { opacity: 0; }

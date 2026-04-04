@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Diorette Salon & Café – India’s First Luxury Salon & Café in Bangalore</title>
-  <meta name="description" content="Get in touch with Diorette, India’s first luxury salon & café in Bangalore. Book your personalized salon treatments or café experience and step into a world of indulgence and luxury." />
-  <meta name="keywords" content="contact Diorette Salon & Café, luxury salon Bangalore contact, India's first salon café Bangalore, book salon appointment Bangalore, luxury grooming Bangalore, café experience Bangalore, unisex salon Bangalore, kids grooming Bangalore, premium hair and skin services Bangalore" />
+  <title>Insights & Trends – Diorette Luxury Salon & Café Bangalore</title>
+  <meta name="description" content="Explore the latest beauty trends, luxury lifestyle insights, and expert tips from Diorette, India’s first luxury salon & café in Bangalore." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
@@ -13,6 +12,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="css/style.css?v=2" />
+  <style>
+    .blog-card { background: var(--white); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); transition: var(--transition); height: 100%; display: flex; flex-direction: column; }
+    .blog-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+    .blog-card-img { position: relative; height: 240px; overflow: hidden; }
+    .blog-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); }
+    .blog-card:hover .blog-card-img img { transform: scale(1.1); }
+    .blog-card-cat { position: absolute; top: 20px; left: 20px; background: var(--primary); color: #fff; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 5px 12px; border-radius: 99px; z-index: 2; }
+    .blog-card-body { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
+    .blog-card-meta { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; display: flex; gap: 15px; }
+    .blog-card-title { font-family: var(--font-serif); font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 15px; line-height: 1.4; }
+    .blog-card-excerpt { font-size: 15px; color: var(--text-muted); margin-bottom: 25px; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .blog-card-link { font-size: 13px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; margin-top: auto; }
+    .blog-card-link i { transition: transform 0.3s; }
+    .blog-card-link:hover i { transform: translateX(5px); }
+
+    .blog-featured { background: var(--dark); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 60px; border: 1px solid rgba(255,255,255,0.1); }
+    .blog-featured-img { height: 100%; min-height: 400px; }
+    .blog-featured-img img { width: 100%; height: 100%; object-fit: cover; }
+    .blog-featured-content { padding: 60px; }
+    .blog-featured-title { font-size: clamp(24px, 4vw, 40px); color: #fff; line-height: 1.2; }
+  </style>
 </head>
 <body>
 
@@ -71,8 +91,8 @@
               <li><a class="dropdown-item" href="why-choose-us.html">Why Choose Us</a></li>
               <li><a class="dropdown-item" href="testimonials.html">Reviews</a></li>
               <li><a class="dropdown-item" href="faq.html">FAQs</a></li>
-              <li><a class="dropdown-item" href="blog.html">Blog</a></li>
-              <li><a class="dropdown-item active" href="contact.html">Contact</a></li>
+              <li><a class="dropdown-item active" href="blog.html">Blog</a></li>
+              <li><a class="dropdown-item" href="contact.html">Contact</a></li>
             </ul>
           </li>
           <li class="nav-item ms-lg-3">
@@ -85,154 +105,129 @@
 
   <!-- HERO -->
   <section class="inner-hero position-relative section-pad text-center">
-    <div class="inner-hero-bg" style="background-image: url('assets/img/Hero_section-1.jpg.jpeg');"></div>
-    <div class="inner-hero-overlay" style="background: linear-gradient(to top, rgba(26,20,16,0.95), rgba(26,20,16,0.2));"></div>
+    <div class="inner-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1562322140-8baeececf3df?w=1600&q=90');"></div>
+    <div class="inner-hero-overlay"></div>
     <div class="container position-relative z-2">
-      <span class="section-tag light mb-3 d-inline-block" data-gsap="fade-up">[ Your Luxury Experience Awaits ]</span>
-      <h1 class="display-4 fw-bold text-white mb-0" style="font-family: var(--font-serif); letter-spacing: 2px;" data-gsap="fade-up">Connect With India’s First Luxury Salon & Café</h1>
+      <span class="section-tag light mb-3 d-inline-block" data-gsap="fade-up">[ Insights & Trends ]</span>
+      <h1 class="display-3 fw-bold text-white mb-0" style="font-family: var(--font-serif); letter-spacing: 2px;" data-gsap="fade-up">OUR BLOG</h1>
       <div class="mt-4" data-gsap="fade-up" data-gsap-delay="0.2"><a href="index.html" class="btn btn-outline-white-custom rounded-pill px-4" style="border-color: rgba(255,255,255,0.3); font-size: 14px;"><i class="fa-solid fa-arrow-left me-2"></i>Back to Home</a></div>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="contact-section section-pad">
+  <!-- BLOG LIST -->
+  <section class="section-pad">
     <div class="container">
-      <div class="section-header text-center" data-gsap="fade-up">
-        <span class="section-tag">[ Get In Touch ]</span>
-        <h2 class="section-title">Your Luxury Experience Awaits – <br><span class="gradient-text">Book Your Personalized Salon & Café Visit</span></h2>
-        <p class="section-sub">Every detail at Diorette is crafted for indulgence, precision, and comfort. Connect with us to begin your journey of refined self-care.</p>
-      </div>
-
-      <div class="row g-5 mt-4 align-items-center">
-        <div class="col-lg-5" data-gsap="fade-right">
-          <div class="contact-info-card">
-            <h3 class="mb-4" style="font-family: var(--font-serif); font-weight: 700;">Visit Our Studio</h3>
-
-            <div class="contact-detail-item">
-              <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
-              <div>
-                <h6>Location</h6>
-                <p>494, Rainbow Arcade 2nd Floor HMT Layout CBI main road, RT Nagar Bangalore 560032</p>
-              </div>
+      
+      <!-- Featured Post -->
+      <div class="blog-featured" data-gsap="fade-up">
+        <div class="row g-0">
+          <div class="col-lg-6">
+            <div class="blog-featured-img">
+              <img src="assets/img/cafe-interior.png" alt="India's First Luxury Salon & Café" />
             </div>
-
-            <div class="contact-detail-item">
-              <div class="detail-icon"><i class="fa-solid fa-phone"></i></div>
-              <div>
-                <h6>Direct Call</h6>
-                <p>+91 8105211558<br><span style="font-size: 13px; color: var(--primary);">Premium Concierge Line</span></p>
-              </div>
-            </div>
-
-            <div class="contact-detail-item">
-              <div class="detail-icon"><i class="fa-brands fa-whatsapp"></i></div>
-              <div>
-                <h6>WhatsApp</h6>
-                <p>+91 7460084600<br><span style="font-size: 13px; color: var(--primary);">Available 24/7 for booking</span></p>
-              </div>
-            </div>
-
-            <div class="contact-detail-item">
-              <div class="detail-icon"><i class="fa-solid fa-envelope"></i></div>
-              <div>
-                <h6>Email Concierge</h6>
-                <p>hello@diorette.com</p>
-              </div>
-            </div>
-
-            <div class="contact-detail-item mb-0">
-              <div class="detail-icon"><i class="fa-solid fa-clock"></i></div>
-              <div>
-                <h6>Opening Hours</h6>
-                <p>Business Hours: 10:30 - 20:30</p>
-              </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="blog-featured-content h-100 d-flex flex-column justify-content-center">
+              <span class="section-tag mb-3">[ Latest Post ]</span>
+              <h2 class="blog-featured-title fw-bold mb-4" style="font-family: var(--font-serif);">Blog 1: India’s First Luxury Salon & Café: Redefining Luxury in Bangalore</h2>
+              <p class="text-white-50 mb-5">In the heart of Bangalore, a new standard of indulgence has emerged. Diorette Salon & Café is not just a salon—it is a revolution in luxury self-care.</p>
+              <div><a href="blog-1.html" class="btn btn-primary-custom px-5">Read Full Article</a></div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="col-lg-7" data-gsap="fade-left">
-          <form class="contact-form-premium" id="contactFormMain">
-            <div class="row g-4">
-              <div class="col-md-6">
-                <div class="form-floating-custom">
-                  <input type="text" class="form-control" id="c-name" placeholder=" " required>
-                  <label for="c-name">Your Name</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-floating-custom">
-                  <input type="email" class="form-control" id="c-email" placeholder=" " required>
-                  <label for="c-email">Email Address</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-floating-custom">
-                  <input type="tel" class="form-control" id="c-phone" placeholder=" ">
-                  <label for="c-phone">Phone Number</label>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-floating-custom select-custom">
-                  <select class="form-control" id="c-service" required>
-                    <option value="" disabled selected>Select a Service</option>
-                    <option value="hair">Hair Styling & Color</option>
-                    <option value="skin">Skin & Facial</option>
-                    <option value="nails">Nail Artistry</option>
-                    <option value="kids">Kids' Grooming</option>
-                    <option value="cafe">Cafe Booking</option>
-                    <option value="other">Other Inquiry</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-12">
-                <div class="form-floating-custom">
-                  <textarea class="form-control" id="c-message" rows="4" placeholder=" " required></textarea>
-                  <label for="c-message">How can we help you?</label>
-                </div>
-              </div>
-              <div class="col-12 mt-2">
-                <button type="submit" class="btn btn-primary-custom w-100 btn-lg magnetic-btn">Send Message <i class="fa-solid fa-paper-plane ms-2"></i></button>
-              </div>
+      <div class="row g-4">
+        <!-- Post 1 -->
+        <div class="col-lg-4 col-md-6" data-gsap="fade-up" data-delay="0.1">
+          <article class="blog-card">
+            <div class="blog-card-img">
+              <img src="assets/img/cafe-interior.png" alt="India's First Luxury Salon & Café" />
+              <span class="blog-card-cat">Lifestyle</span>
             </div>
-          </form>
-          <script>
-            document.getElementById('contactFormMain').addEventListener('submit', function(e) {
-              e.preventDefault();
-              const name    = document.getElementById('c-name').value;
-              const email   = document.getElementById('c-email').value;
-              const phone   = document.getElementById('c-phone').value;
-              const service = document.getElementById('c-service').value;
-              const message = document.getElementById('c-message').value;
-              const subject = encodeURIComponent('Booking Enquiry – ' + service);
-              const body    = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nService: ' + service + '\n\nMessage:\n' + message);
-              window.location.href = 'mailto:hello@diorette.com?subject=' + subject + '&body=' + body;
-            });
-          </script>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar me-1"></i> April 4, 2026</span>
+                <span><i class="fa-regular fa-clock me-1"></i> 8 min read</span>
+              </div>
+              <h3 class="blog-card-title">Blog 1: India’s First Luxury Salon & Café: Redefining Luxury in Bangalore</h3>
+              <p class="blog-card-excerpt">A pioneering concept combining premium salon services and an indulgent café under one roof. Learn why we stand out from regular salons.</p>
+              <a href="blog-1.html" class="blog-card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="col-lg-4 col-md-6" data-gsap="fade-up" data-delay="0.2">
+          <article class="blog-card">
+            <div class="blog-card-img">
+              <img src="assets/img/Hero_section-1.jpg.jpeg" alt="Bangalore's Beauty Evolution" />
+              <span class="blog-card-cat">Trends</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar me-1"></i> April 4, 2026</span>
+                <span><i class="fa-regular fa-clock me-1"></i> 7 min read</span>
+              </div>
+              <h3 class="blog-card-title">Blog 2: Bangalore’s Beauty Evolution: Luxury Salons and International Products</h3>
+              <p class="blog-card-excerpt">Discover how Bangalore is evolving with luxury salons and international beauty products. High-end hair, skin, and nail services.</p>
+              <a href="blog-2.html" class="blog-card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="col-lg-4 col-md-6" data-gsap="fade-up" data-delay="0.3">
+          <article class="blog-card">
+            <div class="blog-card-img">
+              <img src="assets/img/Hero_section-3.jpeg" alt="Future of Beauty" />
+              <span class="blog-card-cat">Lifestyle</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar me-1"></i> April 4, 2026</span>
+                <span><i class="fa-regular fa-clock me-1"></i> 9 min read</span>
+              </div>
+              <h3 class="blog-card-title">Blog 3: Why India’s First Luxury Salon & Café is the Future of Beauty and Lifestyle</h3>
+              <p class="blog-card-excerpt">Explore why experiential luxury and lifestyle integration are the new benchmarks for modern self-care in urban India.</p>
+              <a href="blog-3.html" class="blog-card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Post 4 -->
+        <div class="col-lg-4 col-md-6" data-gsap="fade-up" data-delay="0.4">
+          <article class="blog-card">
+            <div class="blog-card-img">
+              <img src="assets/img/cafe-hero.png" alt="Diorette Café" />
+              <span class="blog-card-cat">Cafe Culture</span>
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-calendar me-1"></i> April 4, 2026</span>
+                <span><i class="fa-regular fa-clock me-1"></i> 7 min read</span>
+              </div>
+              <h3 class="blog-card-title">Blog 4: Diorette Café: India’s First Luxury Salon Café in Bangalore</h3>
+              <p class="blog-card-excerpt">Discover a destination where taste meets sophistication. Artisanal coffee and gourmet delights nested within a luxury salon.</p>
+              <a href="blog-4.html" class="blog-card-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </article>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA SECTION -->
-  <section id="booking" class="cta-section">
-    <div class="cta-bg-shapes">
-      <div class="cta-shape-1"></div>
-      <div class="cta-shape-2"></div>
-    </div>
-    <div class="container">
-      <div class="cta-inner" data-gsap="fade-up">
-        <div class="row align-items-center">
-          <div class="col-lg-7">
-            <span class="section-tag light">[ Reach Out ]</span>
-            <h2 class="cta-title">Ready to experience <span class="gradient-text-light">Diorette?</span></h2>
-            <p class="cta-sub">Book your appointment today at India’s first luxury Salon & Café in Bangalore. Whether you need a transformation or just a moment of peace, our team is ready to welcome you with world-class care and refined comfort.</p>
-          </div>
-          <div class="col-lg-5 text-lg-end mt-4 mt-lg-0">
-            <a href="tel:+918826464841" class="btn btn-white-custom btn-lg me-3">Call to Book</a>
-            <a href="mailto:hello@diorette.com" class="btn btn-outline-white-custom btn-lg">Email Us</a>
-          </div>
+  <!-- CTA -->
+  <section class="cta-section py-5" style="background: var(--primary-light);">
+    <div class="container text-center py-4">
+      <h2 class="mb-4" style="font-family: var(--font-serif); font-weight: 700;">Subscribe to our Newsletter</h2>
+      <p class="text-muted mb-5 max-w-600 mx-auto">Get the latest beauty trends, luxury lifestyle tips, and exclusive Diorette offers delivered to your inbox.</p>
+      <form class="mx-auto" style="max-width: 500px;">
+        <div class="input-group">
+          <input type="email" class="form-control px-4 py-3 border-0" placeholder="Your email address" style="border-radius: 99px 0 0 99px;">
+          <button class="btn btn-primary-custom px-5" type="submit" style="border-radius: 0 99px 99px 0;">Subscribe</button>
         </div>
-      </div>
+      </form>
     </div>
   </section>
 
@@ -292,15 +287,18 @@
           </div>
         </div>
       </div>
+      <div class="footer-bottom text-center">
+        <p>&copy; 2025 Diorette Salon & Café. All rights reserved.</p>
         <div class="footer-bottom-links mt-2">
             <a href="terms-and-conditions.html" class="mx-2 text-white-50">Terms and Conditions</a>
             <a href="privacy-policy.html" class="mx-2 text-white-50">Privacy Policy</a>
         </div>
+      </div>
     </div>
   </footer>
 
   <!-- WHATSAPP FLOAT -->
-  <a href="https://wa.me/917460084600" class="chat-float-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+  <a href="https://wa.me/918826464841" class="chat-float-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" width="28" height="28">
       <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157.1zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-2.1-3.6 2.1-3.2 7.6-14.2 2.7-5.6 1.4-10.4-1.4-16-2.8-5.6-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
     </svg>
