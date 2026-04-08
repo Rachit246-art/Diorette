@@ -91,10 +91,14 @@ ul { list-style: none; padding: 0; margin: 0; }
   color: var(--text) !important; text-decoration: none;
   transition: transform var(--transition);
 }
-.d-logo-icon { width: 44px; height: 44px; color: var(--text); }
+.d-logo-icon { width: 44px; height: 44px; color: var(--white); transition: color 0.4s ease; }
 .d-logo-text { display: flex; flex-direction: column; justify-content: center; line-height: 1; }
-.d-title { font-family: var(--font-sans); font-size: 25px; font-weight: 500; letter-spacing: 5px; color: var(--text); margin-bottom: 4px; }
-.d-subtitle { font-family: var(--font-sans); font-size: 9px; font-weight: 600; letter-spacing: 7px; color: var(--text); margin-left: 2px; }
+.d-title { font-family: var(--font-sans); font-size: 25px; font-weight: 500; letter-spacing: 5px; color: var(--white); margin-bottom: 4px; transition: color 0.4s ease; }
+.d-subtitle { font-family: var(--font-sans); font-size: 9px; font-weight: 600; letter-spacing: 7px; color: var(--white); margin-left: 2px; transition: color 0.4s ease; }
+
+#navbar.scrolled .d-logo-icon,
+#navbar.scrolled .d-title,
+#navbar.scrolled .d-subtitle { color: var(--text); }
 
 .diorette-brand-loader {
   display: flex; flex-direction: column; align-items: center; gap: 14px;
@@ -210,20 +214,25 @@ ul { list-style: none; padding: 0; margin: 0; }
 /* ---- NAVBAR ---- */
 #navbar {
   position: fixed; width: 100%; top: 0; left: 0;
+  background: transparent;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+  padding: 22px 0; box-shadow: none;
+  transition: all 0.4s ease;
+  z-index: 1050;
+}
+#navbar.scrolled {
   background: rgba(253,250,246,0.98);
   backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
   padding: 12px 0; box-shadow: 0 4px 24px rgba(201,169,110,0.12);
-  transition: padding 0.4s ease, box-shadow 0.4s ease;
-  z-index: 1050;
 }
 .navbar-brand {
   display: none; /* Hide old class to use diorette-brand-nav directly */
 }
 
 .nav-link {
-  font-size: 14px; font-weight: 500; color: var(--text) !important;
+  font-size: 14px; font-weight: 500; color: var(--white) !important;
   padding: 6px 14px !important; border-radius: 8px;
-  transition: color var(--transition); position: relative;
+  transition: all 0.4s ease; position: relative;
 }
 
 .nav-link::after {
@@ -235,8 +244,12 @@ ul { list-style: none; padding: 0; margin: 0; }
 .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
 #navbar .nav-link:hover, #navbar .nav-link.active { color: var(--primary) !important; }
 
+#navbar.scrolled .nav-link { color: var(--text) !important; }
+#navbar.scrolled .nav-link:hover, #navbar.scrolled .nav-link.active { color: var(--primary) !important; }
+
 .toggler-icon { display: flex; flex-direction: column; gap: 5px; cursor: pointer; }
-.toggler-icon span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 99px; transition: background var(--transition); }
+.toggler-icon span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 99px; transition: all 0.4s ease; }
+#navbar.scrolled .toggler-icon span { background: var(--text); }
 .navbar-toggler { border: none; padding: 4px; background: none; }
 .navbar-toggler:focus { box-shadow: none; }
 
@@ -267,10 +280,9 @@ ul { list-style: none; padding: 0; margin: 0; }
 .hero-slide-bg {
   position: absolute;
   inset: -80px 0;
-  background-size: contain;
+  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-color: #1a1410;
   will-change: transform;
   transform: scale(1);
   transition: transform 6s linear;
@@ -531,7 +543,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 /* ---- ABOUT ---- */
 .about-section { background: var(--white); }
 .about-img-wrap { position: relative; display: inline-block; width: 100%; overflow: hidden; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
-.about-img { width: 100%; height: 680px; transform: none; object-fit: contain; background: #f5efe6; border-radius: 0; box-shadow: none; }
+.about-img { width: 100%; height: 680px; transform: none; object-fit: cover; background: #f5efe6; border-radius: 0; box-shadow: none; }
 .about-exp-badge {
   position: absolute; top: 24px; right: -24px;
   background: var(--white); border-radius: var(--radius);
@@ -593,7 +605,7 @@ ul { list-style: none; padding: 0; margin: 0; }
 }
 .filter-btn:hover, .filter-btn.active { background: var(--primary); border-color: var(--primary); color: var(--white); }
 .port-card { position: relative; border-radius: var(--radius); overflow: hidden; cursor: none; }
-.port-card img { width: 100%; height: 380px; transform: none; object-fit: contain; background: #1a1410; transition: transform 0.6s cubic-bezier(0.25,1,0.5,1), filter 0.6s ease; display: block; }
+.port-card img { width: 100%; height: 380px; transform: none; object-fit: cover; transition: transform 0.6s cubic-bezier(0.25,1,0.5,1), filter 0.6s ease; display: block; }
 .port-card:hover img { transform: scale(1.04); filter: blur(3px) brightness(0.65); }
 .port-overlay {
   position: absolute; inset: 0;
