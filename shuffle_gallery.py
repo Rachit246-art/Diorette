@@ -15,10 +15,10 @@ def shuffle_gallery(filepath):
 
     # Filter out forbidden images
     forbidden = [
-        'gallery-haircut.jpg.png',
-        'Hero_section-1.jpg.jpeg',
-        'Hero_section-2.jpeg',
-        'our work.jpg.png'
+        'gallery-haircut.jpg.webp',
+        'Hero_section-1.jpg.webp',
+        'Hero_section-2.webp',
+        'our work.jpg.webp'
     ]
     
     filtered_items = []

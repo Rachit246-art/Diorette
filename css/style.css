@@ -1020,7 +1020,7 @@ ul { list-style: none; padding: 0; margin: 0; }
   .about-img { height: 380px; }
   .about-exp-badge { top: 16px; right: 16px; padding: 16px 20px; }
   .exp-num { font-size: 28px; }
-  .port-card img { height: 260px; object-fit: contain; }
+  .port-card img { height: 320px; object-fit: cover; }
   .cta-section { padding: 80px 0; text-align: center; }
   .cta-title { font-size: 32px; }
   .cta-sub { margin-left: auto; margin-right: auto; }
