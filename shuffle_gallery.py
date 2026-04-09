@@ -1,63 +1,61 @@
 import re
 import random
+import os
 
 def shuffle_gallery(filepath):
+    if not os.path.exists(filepath):
+        print(f"File not found: {filepath}")
+        return
+
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Match the port-item div and its THREE nested closing tags
-    item_regex = r'(<div class="[^"]*port-item"[^>]*>.*?</div>\s+</div>\s+</div>)'
+    grid_start_tag = '<div class="row g-4 mt-2 portfolio-grid">'
+    start_index = content.find(grid_start_tag)
+    if start_index == -1:
+        print(f"Portfolio grid not found in {filepath}")
+        return
+
+    item_regex = r'(<div class="[^"]*port-item"[^>]*>.*?</div>\s*</div>\s*</div>)'
     items = re.findall(item_regex, content, re.DOTALL)
     
     if not items:
         print(f"No items found in {filepath}")
         return
 
-    # Filter out forbidden images
-    forbidden = [
-        'gallery-haircut.jpg.webp',
-        'Hero_section-1.jpg.webp',
-        'Hero_section-2.webp',
-        'our work.jpg.webp'
-    ]
+    print(f"Found {len(items)} items in {filepath}")
     
-    filtered_items = []
-    for item in items:
-        skip = False
-        for f in forbidden:
-            if f in item:
-                skip = True
-                break
-        if not skip:
-            filtered_items.append(item)
+    # Shuffle the items
+    random.shuffle(items)
     
-    # Shuffle
-    random.shuffle(filtered_items)
+    # Reset delays for smooth animation (0, 0.1, 0.2 per row of 3)
+    shuffled_items = []
+    for i, item in enumerate(items):
+        delay = (i % 3) * 0.1
+        # Replace data-delay="X" with new delay
+        new_item = re.sub(r'data-delay="[^"]*"', f'data-delay="{delay:.1f}"', item)
+        # Also handle data-gsap-delay if it exists
+        new_item = re.sub(r'data-gsap-delay="[^"]*"', f'data-gsap-delay="{delay:.1f}"', new_item)
+        shuffled_items.append(new_item)
     
-    # Replace the gallery block inside portfolio-grid
-    container_pattern = r'(<div class="row g-4 mt-2 portfolio-grid">)(.*?)(</div>\s+</div>\s+</section>)'
-    
-    # For safety, let's find the grid specifically
-    grid_match = re.search(container_pattern, content, re.DOTALL)
-    if not grid_match:
-        # Try alternate pattern for gallery.html which might have different structure
-        container_pattern = r'(<div class="row g-4 mt-2 portfolio-grid">)(.*?)(</div>\s+</div>\s+</div>\s+</section>|</div>\s+</div>\s+</section>)'
-        grid_match = re.search(container_pattern, content, re.DOTALL)
-
-    if grid_match:
-        header = grid_match.group(1)
-        # We need to be careful with the footer match because of nested divs
-        # I'll just replace the content between the start of the first item and the end of the last item in the group
+    # Find positions
+    all_items_match = list(re.finditer(item_regex, content, re.DOTALL))
+    if not all_items_match:
+        return
         
-        inner_content = grid_match.group(2)
-        new_inner = "\n        " + "\n        ".join(filtered_items) + "\n      "
-        new_content = content[:grid_match.start(2)] + new_inner + content[grid_match.end(2):]
-        
-        with open(filepath, 'w', encoding='utf-8') as f:
-            f.write(new_content)
-        print(f"Successfully shuffled {len(filtered_items)} items in {filepath}")
-    else:
-        print(f"Could not find portfolio-grid container in {filepath}")
+    first_item_start = all_items_match[0].start()
+    last_item_end = all_items_match[-1].end()
+    
+    # Construct the new content
+    new_items_block = "\n        ".join(shuffled_items)
+    
+    new_content = content[:first_item_start] + new_items_block + content[last_item_end:]
+    
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+    print(f"Successfully shuffled and normalized delays in {filepath}")
 
-shuffle_gallery(r'c:\Users\MSI\OneDrive\Desktop\Salon\cunnet-clone\index.html')
-shuffle_gallery(r'c:\Users\MSI\OneDrive\Desktop\Salon\cunnet-clone\gallery.html')
+# Paths
+base_path = r'c:\Users\MSI\OneDrive\Desktop\Salon\cunnet-clone'
+shuffle_gallery(os.path.join(base_path, 'index.html'))
+shuffle_gallery(os.path.join(base_path, 'gallery.html'))
