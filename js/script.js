@@ -452,7 +452,7 @@ function initContactForms() {
         'Message:\r\n' + message
       );
       
-      const mailtoUrl = 'mailto:hello@diorette.com?subject=' + subject + '&body=' + body;
+      const mailtoUrl = 'mailto:dioretteofficial@gmail.com?subject=' + subject + '&body=' + body;
       window.location.href = mailtoUrl;
     });
   });
