@@ -174,12 +174,13 @@
                 <div class="form-floating-custom select-custom">
                   <select class="form-control" id="c-service" required>
                     <option value="" disabled selected>Select a Service</option>
-                    <option value="hair">Hair Styling & Color</option>
-                    <option value="skin">Skin & Facial</option>
-                    <option value="nails">Nail Artistry</option>
-                    <option value="kids">Kids' Grooming</option>
-                    <option value="cafe">Cafe Booking</option>
-                    <option value="other">Other Inquiry</option>
+                    <option value="Hair Services">Hair Services</option>
+                    <option value="Skin Services">Skin Services</option>
+                    <option value="Nail Services">Nail Services</option>
+                    <option value="Kids Services">Kids' Services</option>
+                    <option value="Signature Grooming">Signature Grooming</option>
+                    <option value="Cafe Experience">Café Experience</option>
+                    <option value="Other Inquiry">Other Inquiry</option>
                   </select>
                 </div>
               </div>
@@ -299,6 +300,27 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
   <script src="js/script.js?v=2"></script>
+  <script>
+    document.getElementById('contactFormMain').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('c-name').value;
+      const email = document.getElementById('c-email').value;
+      const phone = document.getElementById('c-phone').value;
+      const service = document.getElementById('c-service').value;
+      const message = document.getElementById('c-message').value;
+
+      const subject = encodeURIComponent(`Service Inquiry from ${name}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\r\n` +
+        `Email: ${email}\r\n` +
+        `Phone: ${phone}\r\n` +
+        `Service Interest: ${service}\r\n\r\n` +
+        `Message:\r\n${message}`
+      );
+
+      window.location.href = `mailto:dioretteofficial@gmail.com?subject=${subject}&body=${body}`;
+    });
+  </script>
 </body>
 </html>
 
