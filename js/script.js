@@ -246,19 +246,47 @@ function initSwiper() {
 function initPortfolioFilter() {
   const btns = document.querySelectorAll('.filter-btn');
   const items = document.querySelectorAll('.port-item');
+  if (!btns.length || !items.length) return;
+
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
+      // Update active button
       btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      
       const filter = btn.dataset.filter;
+      
       items.forEach(item => {
+        // Kill any ongoing filtering animations to prevent race conditions
+        gsap.killTweensOf(item);
+        
         if (filter === 'all' || item.dataset.cat === filter) {
+          // Show item
           item.classList.remove('hidden');
-          gsap.fromTo(item, { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out' });
+          gsap.fromTo(item, 
+            { opacity: 0, scale: 0.95 }, 
+            { opacity: 1, scale: 1, duration: 0.4, ease: 'power2.out', clearProps: "transform" }
+          );
         } else {
-          gsap.to(item, { opacity: 0, scale: 0.95, duration: 0.3, ease: 'power2.in', onComplete: () => item.classList.add('hidden') });
+          // Hide item
+          gsap.to(item, { 
+            opacity: 0, 
+            scale: 0.95, 
+            duration: 0.3, 
+            ease: 'power2.in', 
+            onComplete: () => {
+              item.classList.add('hidden');
+            } 
+          });
         }
       });
+
+      // Refresh ScrollTrigger after layout changes to ensure parallax and other scroll effects still work
+      setTimeout(() => {
+        if (typeof ScrollTrigger !== 'undefined') {
+          ScrollTrigger.refresh();
+        }
+      }, 500);
     });
   });
 }
