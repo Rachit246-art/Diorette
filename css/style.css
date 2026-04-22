@@ -844,6 +844,8 @@ ul { list-style: none; padding: 0; margin: 0; }
   justify-content: space-between; flex-wrap: wrap; gap: 12px;
 }
 .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); margin: 0; }
+.footer-bottom p a { color: var(--primary); font-weight: 600; text-decoration: none; transition: color 0.3s ease; }
+.footer-bottom p a:hover { color: var(--white); text-decoration: underline; }
 .footer-bottom p i { color: var(--secondary); }
 .footer-bottom-links { display: flex; gap: 20px; }
 .footer-bottom-links a { font-size: 13px; color: rgba(255,255,255,0.35); transition: color 0.3s; }
