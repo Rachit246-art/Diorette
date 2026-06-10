@@ -279,9 +279,10 @@
         <div class="col-lg-4 col-md-4">
           <h6 class="footer-heading">Stay in Touch</h6>
           <p class="footer-newsletter-text">Subscribe for beauty tips, exclusive offers, and new treatment launches.</p>
-          <form class="footer-newsletter-form mt-3">
+          <form class="footer-newsletter-form mt-3" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="c717085d-080b-40b8-aa12-4ba7b64f7ae5">
             <div class="newsletter-input-wrap">
-              <input type="email" placeholder="Your email address" />
+              <input type="email" name="email" placeholder="Your email address" required />
               <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
           </form>

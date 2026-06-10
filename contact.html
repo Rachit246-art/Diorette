@@ -150,29 +150,30 @@
         </div>
 
         <div class="col-lg-7" data-gsap="fade-left">
-          <form class="contact-form-premium" id="contactFormMain">
+          <form class="contact-form-premium" id="contactFormMain" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="c717085d-080b-40b8-aa12-4ba7b64f7ae5">
             <div class="row g-4">
               <div class="col-md-6">
                 <div class="form-floating-custom">
-                  <input type="text" class="form-control" id="c-name" placeholder=" " required>
+                  <input type="text" class="form-control" name="name" id="c-name" placeholder=" " required>
                   <label for="c-name">Your Name</label>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-floating-custom">
-                  <input type="email" class="form-control" id="c-email" placeholder=" " required>
+                  <input type="email" class="form-control" name="email" id="c-email" placeholder=" " required>
                   <label for="c-email">Email Address</label>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-floating-custom">
-                  <input type="tel" class="form-control" id="c-phone" placeholder=" ">
+                  <input type="tel" class="form-control" name="phone" id="c-phone" placeholder=" ">
                   <label for="c-phone">Phone Number</label>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-floating-custom select-custom">
-                  <select class="form-control" id="c-service" required>
+                  <select class="form-control" name="service" id="c-service" required>
                     <option value="" disabled selected>Select a Service</option>
                     <option value="Hair Services">Hair Services</option>
                     <option value="Skin Services">Skin Services</option>
@@ -186,7 +187,7 @@
               </div>
               <div class="col-12">
                 <div class="form-floating-custom">
-                  <textarea class="form-control" id="c-message" rows="4" placeholder=" " required></textarea>
+                  <textarea class="form-control" name="message" id="c-message" rows="4" placeholder=" " required></textarea>
                   <label for="c-message">How can we help you?</label>
                 </div>
               </div>
@@ -262,9 +263,10 @@
         <div class="col-lg-4 col-md-4">
           <h6 class="footer-heading">Stay in Touch</h6>
           <p class="footer-newsletter-text">Subscribe for beauty tips, exclusive offers, and new treatment launches.</p>
-          <form class="footer-newsletter-form mt-3">
+          <form class="footer-newsletter-form mt-3" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="c717085d-080b-40b8-aa12-4ba7b64f7ae5">
             <div class="newsletter-input-wrap">
-              <input type="email" placeholder="Your email address" />
+              <input type="email" name="email" placeholder="Your email address" required />
               <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
           </form>
@@ -303,27 +305,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
   <script src="js/script.js?v=2"></script>
-  <script>
-    document.getElementById('contactFormMain').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('c-name').value;
-      const email = document.getElementById('c-email').value;
-      const phone = document.getElementById('c-phone').value;
-      const service = document.getElementById('c-service').value;
-      const message = document.getElementById('c-message').value;
-
-      const subject = encodeURIComponent(`Service Inquiry from ${name}`);
-      const body = encodeURIComponent(
-        `Name: ${name}\r\n` +
-        `Email: ${email}\r\n` +
-        `Phone: ${phone}\r\n` +
-        `Service Interest: ${service}\r\n\r\n` +
-        `Message:\r\n${message}`
-      );
-
-      window.location.href = `mailto:dioretteofficial@gmail.com?subject=${subject}&body=${body}`;
-    });
-  </script>
+  
 </body>
 </html>
 

@@ -229,7 +229,8 @@
     <div class="container text-center py-4">
       <h2 class="mb-4" style="font-family: var(--font-serif); font-weight: 700;">Subscribe to our Newsletter</h2>
       <p class="text-muted mb-5 max-w-600 mx-auto">Get the latest beauty trends, luxury lifestyle tips, and exclusive Diorette offers delivered to your inbox.</p>
-      <form class="mx-auto" style="max-width: 500px;">
+      <form class="mx-auto" style="max-width: 500px;" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="c717085d-080b-40b8-aa12-4ba7b64f7ae5">
         <div class="input-group">
           <input type="email" class="form-control px-4 py-3 border-0" placeholder="Your email address" style="border-radius: 99px 0 0 99px;">
           <button class="btn btn-primary-custom px-5" type="submit" style="border-radius: 0 99px 99px 0;">Subscribe</button>
@@ -276,9 +277,10 @@
         <div class="col-lg-4 col-md-4">
           <h6 class="footer-heading">Stay in Touch</h6>
           <p class="footer-newsletter-text">Subscribe for beauty tips, exclusive offers, and new treatment launches.</p>
-          <form class="footer-newsletter-form mt-3">
+          <form class="footer-newsletter-form mt-3" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="c717085d-080b-40b8-aa12-4ba7b64f7ae5">
             <div class="newsletter-input-wrap">
-              <input type="email" placeholder="Your email address" />
+              <input type="email" name="email" placeholder="Your email address" required />
               <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
             </div>
           </form>
