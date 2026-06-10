@@ -462,28 +462,7 @@ function initLightbox() {
 
 /* ---- Contact Form Mailto ---- */
 function initContactForms() {
-  document.querySelectorAll('form.contact-form-premium').forEach(form => {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name    = form.querySelector('#name, #c-name')?.value || '';
-      const email   = form.querySelector('#email, #c-email')?.value || '';
-      const phone   = form.querySelector('#phone, #c-phone')?.value || '';
-      const service = form.querySelector('#service, #c-service')?.value || 'General Inquiry';
-      const message = form.querySelector('#message, #c-message')?.value || '';
-      
-      const subject = encodeURIComponent('Booking Enquiry – ' + service);
-      const body    = encodeURIComponent(
-        'Name: ' + name + '\r\n' +
-        'Email: ' + email + '\r\n' +
-        'Phone: ' + phone + '\r\n' +
-        'Service: ' + service + '\r\n\r\n' +
-        'Message:\r\n' + message
-      );
-      
-      const mailtoUrl = 'mailto:dioretteofficial@gmail.com?subject=' + subject + '&body=' + body;
-      window.location.href = mailtoUrl;
-    });
-  });
+  // Removed mailto override to allow Web3Forms native submission
 }
 
 /* ---- Init All ---- */
